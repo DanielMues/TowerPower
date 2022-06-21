@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E9CEFB78-E558-5A65-CCA3-EC0AFFC77E51}</ProjectGuid>
+    <ProjectGuid>{02A2E550-76E8-4AEB-8180-F0DD82ABEC7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,6 +53,9 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\_Scripts\CustomEventHandler.cs" />
     <Compile Include="Assets\_Scripts\UI\UIWave.cs" />
     <Compile Include="Assets\_Scripts\TimeHandler.cs" />
@@ -60,18 +63,18 @@
     <Compile Include="Assets\_Scripts\CameraMovement.cs" />
     <Compile Include="Assets\_Scripts\Classes\CheckpointClass.cs" />
     <Compile Include="Assets\_Scripts\Turret\GameObjectResources.cs" />
+    <Compile Include="Assets\_Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\_Scripts\UI\UIInit.cs" />
     <Compile Include="Assets\_Scripts\Unit\Health.cs" />
     <Compile Include="Assets\_Scripts\Player\Resources.cs" />
     <Compile Include="Assets\_Scripts\GridInit.cs" />
     <Compile Include="Assets\_Scripts\Unit\UnitMovement.cs" />
+    <Compile Include="Assets\_Scripts\EnemyAi.cs" />
     <Compile Include="Assets\_Scripts\CustomDataStorage.cs" />
     <Compile Include="Assets\_Scripts\WaveHandler.cs" />
     <Compile Include="Assets\_Scripts\Turret\TurretShooter.cs" />
     <Compile Include="Assets\_Scripts\SpawnTurret.cs" />
     <Compile Include="Assets\_Scripts\Unit\UnitStats.cs" />
-    <Compile Include="Assets\_Scripts\EnemyAi.cs" />
-    <Compile Include="Assets\_Scripts\UI\HealthBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -37,14 +37,5 @@ public class UIInit : MonoBehaviour
         {
             Debug.Log("no gold text found");
         }
-        if (elixierText != null)
-        {
-            int elixier = playerResources.getElixier();
-            elixierText.text = string.Format("Elixier: {0}", elixier);
-        }
-        else
-        {
-            Debug.Log("no elixier text found");
-        }
     }
 }

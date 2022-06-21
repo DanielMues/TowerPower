@@ -41,13 +41,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         GameObject currentPlayer = this.GetComponent<UnitStats>().getPlayer();
-        foreach (GameObject player in customData.players)
-        {
-            if(currentPlayer.name != player.name)
-            {
-                player.GetComponent<Resources>().increaseGold(this.GetComponent<UnitStats>().returnValue);
-            }
-        }
+        currentPlayer.GetComponent<Resources>().increaseGold(this.GetComponent<UnitStats>().returnValue);
         Destroy(this.gameObject);
     }
 

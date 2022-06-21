@@ -71,19 +71,13 @@ public class WaveHandler : MonoBehaviour
         GameObject enemy = findEnemy(name);
         if(currentRunnerAmount + enemy.GetComponent<UnitStats>().spaceTaken <= runnerListMax)
         {
-            if (player.GetComponent<Resources>().decreaseElixier(enemy.GetComponent<GameObjectResources>().elixierCost)){
-                runners.Add(enemy);
-                currentRunnerAmount += enemy.GetComponent<UnitStats>().spaceTaken;
-                if(player.name == "Player1")
-                {
-                    int enemyAmount = GetAmountOfAddedEnemies(enemy);
-                    customEventHandler.SendDisplayUnitAmount(enemyAmount, enemy.name);
-                    customEventHandler.SendDisplayMaxRunner(currentRunnerAmount, runnerListMax);
-                }
-            }
-            else
+            runners.Add(enemy);
+            currentRunnerAmount += enemy.GetComponent<UnitStats>().spaceTaken;
+            if(player.name == "Player1")
             {
-                Debug.Log("not enough elixier");
+                int enemyAmount = GetAmountOfAddedEnemies(enemy);
+                customEventHandler.SendDisplayUnitAmount(enemyAmount, enemy.name);
+                customEventHandler.SendDisplayMaxRunner(currentRunnerAmount, runnerListMax);
             }
         }
         else
@@ -137,7 +131,7 @@ public class WaveHandler : MonoBehaviour
 
     private GameObject GetEnemyPlayer(List<GameObject> players, GameObject player)
     {
-        GameObject enemyPlayer = player;
+        GameObject enemyPlayer = null;
         int playerCount = 0;
         foreach (GameObject enemy in players)
         {

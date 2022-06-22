@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7278737925211177231}
   - component: {fileID: 93515126985359447}
   - component: {fileID: -1580258286160223533}
+  - component: {fileID: -3086290292550960670}
   - component: {fileID: -8671690436974183869}
   m_Layer: 0
   m_Name: Player
@@ -48,8 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gold: 100
-  elixier: 100
-  elixierIncreasePerSecond: 1
 --- !u!114 &7278737925211177231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220900015c2f17642a117d0c6c965929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPosition: {x: 0, y: 0, z: 0}
   map: {fileID: 0}
   tiles:
   - {fileID: 8110719193379804542, guid: 540e3d337d01fa7428145c8baaebc95a, type: 3}
@@ -123,6 +121,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-3086290292550960670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165989779601121958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c22a11ba2195048ac2dc4f07571d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livePoints: 20
 --- !u!33 &-8671690436974183869
 MeshFilter:
   m_ObjectHideFlags: 0

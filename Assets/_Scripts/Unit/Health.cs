@@ -47,6 +47,8 @@ public class Health : MonoBehaviour
 
     public void Win()
     {
+        GameObject currentPlayer = this.GetComponent<UnitStats>().getPlayer();
+        currentPlayer.GetComponent<PlayerHealth>().DecreaseLivePoints(1);
         Destroy(this.gameObject);
     }
 

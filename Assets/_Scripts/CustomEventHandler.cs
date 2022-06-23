@@ -58,4 +58,16 @@ public class CustomEventHandler : MonoBehaviour
     {
         DisplayUnitAmount?.Invoke(this, new DisplayUnitAmountsArguments { amount = amount, name = name });
     }
+
+    //custom Victory Event
+    public event EventHandler<DefeatArguments> Defeat;
+
+    public class DefeatArguments : EventArgs
+    {
+        public GameObject player;
+    }
+    public void SendDefeat(GameObject defeatedPlayer)
+    {
+        Defeat?.Invoke(this, new DefeatArguments { player = defeatedPlayer });
+    }
 }

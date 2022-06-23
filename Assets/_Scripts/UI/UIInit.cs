@@ -14,12 +14,17 @@ public class UIInit : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        GameObject[] overlays = GameObject.FindGameObjectsWithTag("Overlay");
         // disable not needed inGameOverlays
+        foreach ( GameObject overlay in overlays)
+        {
+            overlay.SetActive(true);
+        }
         if(inGameOverlays != null)
         {
             foreach(GameObject canvases in inGameOverlays)
             {
-                canvases.GetComponent<Canvas>().enabled = false; 
+                canvases.SetActive(false); 
             }
         }
         customDataStorage = CustomDataStorage.instance;

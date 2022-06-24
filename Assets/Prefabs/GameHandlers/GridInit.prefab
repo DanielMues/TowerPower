@@ -99,3 +99,4 @@ MonoBehaviour:
   - {fileID: 8110719193379804542, guid: 540e3d337d01fa7428145c8baaebc95a, type: 3}
   - {fileID: 8893786113882650503, guid: 540e3d337d01fa7428145c8baaebc95a, type: 3}
   - {fileID: 133982719826790466, guid: 540e3d337d01fa7428145c8baaebc95a, type: 3}
+  hoverTilePrefab: {fileID: 3403861771626748536, guid: 9fd7566030b9c554fbb1eacfe73f31da, type: 3}

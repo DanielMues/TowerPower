@@ -19,6 +19,8 @@ public class GridInit : MonoBehaviour
     [Header("TileMap")]
     public Tilemap map;
     public List<Sprite> tiles;
+    public GameObject hoverTilePrefab;
+    private GameObject hoverTile;
 
     private List<CheckpointClass> createPathCheckpoints;
     private List<Vector3> originPositions;
@@ -55,10 +57,21 @@ public class GridInit : MonoBehaviour
         GetComponent<MeshFilter>().mesh = gridMesh;
         createPath(grid);
         SetTile(grid);
+        hoverTile = GameObject.Instantiate(hoverTilePrefab);
+        hoverTile.SetActive(false);
     }
 
     void Update()
     {
+        if(selectedTurret != null)
+        {
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 centerdGridFieldWorldPosition = grid.CenteredGridFieldWorldPosition(worldPosition);
+            if (grid.GetValue(centerdGridFieldWorldPosition) == GridEmptyValue)
+            {
+                hoverTile.transform.position = centerdGridFieldWorldPosition;
+            }
+        }
         if (Input.GetMouseButtonDown(0) && selectedTurret != null)
         {
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -68,6 +81,7 @@ public class GridInit : MonoBehaviour
                 customEventHandler.SendSpawnTurret(players[0],centerdGridFieldWorldPosition, selectedTurret);
                 grid.SetValue(worldPosition, GridTurretValue);
                 selectedTurret = null;
+                hoverTile.SetActive(false);
             }
         }
     }
@@ -202,6 +216,7 @@ public class GridInit : MonoBehaviour
     public void setTurret(GameObject turret)
     {
         selectedTurret = turret;
+        hoverTile.SetActive(true);
     }
 
     public Grid getGrid()

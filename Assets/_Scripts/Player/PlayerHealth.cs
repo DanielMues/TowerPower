@@ -9,12 +9,16 @@ public class PlayerHealth : MonoBehaviour
     public int livePoints;
     CustomEventHandler customEvent;
     CustomDataStorage customData;
+    private bool gameEnded;
 
+    public Text playerHealthText;
     public void Start()
     {
         customEvent = CustomEventHandler.instance;
         customEvent.Defeat += EndTheGame;
         customData = CustomDataStorage.instance;
+        gameEnded = false;
+        updatePlayerHealthUI();
     }
 
     public void Update()
@@ -40,12 +44,14 @@ public class PlayerHealth : MonoBehaviour
     public void DecreaseLivePoints(int amount)
     {
         livePoints -= amount;
+        updatePlayerHealthUI();
     }
 
     private void EndTheGame(object sender, CustomEventHandler.DefeatArguments args)
     {
-        if(customData.players.Count == 2 && this.gameObject == customData.players[0])
+        if(customData.players.Count == 2 && this.gameObject == customData.players[0] && gameEnded == false)
         {
+            gameEnded = true;
             GameObject parentOverlay = GameObject.Find("AllGameOverlay");
             GameObject endScreen = null;
             GameObject ingameScreen = null;
@@ -61,7 +67,6 @@ public class PlayerHealth : MonoBehaviour
             }
             if(endScreen != null && ingameScreen != null)
             {
-                Debug.Log("es ist vorhanden");
                 endScreen.SetActive(true);
                 ingameScreen.SetActive(false);
                 GameObject endScreenText = GameObject.Find("EndText");
@@ -80,6 +85,14 @@ public class PlayerHealth : MonoBehaviour
                 Debug.Log(endScreen);
                 Debug.Log(ingameScreen);
             }
+        }
+    }
+
+    private void updatePlayerHealthUI()
+    {
+        if(playerHealthText != null)
+        {
+            playerHealthText.text = string.Format("{0}", livePoints);
         }
     }
 }

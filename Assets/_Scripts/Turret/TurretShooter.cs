@@ -26,7 +26,7 @@ public class TurretShooter : MonoBehaviour
             if (lastshot + timeBetweenShoot < currenTime)
             {
                 Health runnerHealth = targetEnemy.GetComponent<Health>();
-                runnerHealth.decreaseLive(damage);
+                runnerHealth.decreaseLive(damage, "Normal");
                 lastshot = currenTime;
             }
         }

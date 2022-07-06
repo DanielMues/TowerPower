@@ -6,5 +6,4 @@ public class GameObjectResources : MonoBehaviour
 {
     [Header("Resources")]
     public int goldCost;
-    public int elixierCost;
 }

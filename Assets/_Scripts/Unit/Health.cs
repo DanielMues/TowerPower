@@ -5,8 +5,12 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
-    public int livePoints = 50;
-    private int maxLivePoints;
+    public float livePoints = 50;
+    public float protection = 0;
+    public float fireProtection = 0;
+    public float nuclearProtection = 0;
+    public float electricProtection = 0;
+    private float maxLivePoints;
     CustomDataStorage customData;
     public HealthBar healthBar;
     // Start is called before the first frame update
@@ -23,10 +27,25 @@ public class Health : MonoBehaviour
         checkIfAlive();
     }
 
-    public void decreaseLive(int amount)
+    public void decreaseLive(int amount, string damageType)
     {
-        livePoints -= amount;
-        float divide = ((float)livePoints / (float)maxLivePoints);
+        switch (damageType)
+        {
+            case "Normal":
+                livePoints -= amount * (1 - protection);
+                break;
+            case "Fire":
+                livePoints -= amount * (1 - fireProtection) * livePoints;
+                break;
+            case "Nuclear":
+                livePoints -= amount * 1 - protection;
+                break;
+            case "Electric":
+                livePoints -= amount * (1 - electricProtection) * maxLivePoints;
+                break;
+        }
+        
+        float divide = (livePoints / maxLivePoints);
         healthBar.setSize(divide);
     }
 

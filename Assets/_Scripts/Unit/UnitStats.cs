@@ -5,7 +5,6 @@ using UnityEngine;
 public class UnitStats : MonoBehaviour
 {
     public int spaceTaken;
-    public int payCost;
     public int returnValue;
     private GameObject player;
 

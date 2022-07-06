@@ -25,7 +25,7 @@ public class WaveHandler : MonoBehaviour
     void Start()
     {
         runners = new List<GameObject>();
-        runnerListMax = 2;
+        runnerListMax = 12;
         currentRunnerAmount = 0;
         customEventHandler = CustomEventHandler.instance;
         customEventHandler.StartWave += SendWave;
@@ -55,7 +55,7 @@ public class WaveHandler : MonoBehaviour
             runners.Clear();
             if (currentRunnerAmount >= runnerListMax * 0.8)
             {
-                runnerListMax += 2;
+                runnerListMax += 4;
             }
             currentRunnerAmount = 0;
             if (player.name == "Player1")

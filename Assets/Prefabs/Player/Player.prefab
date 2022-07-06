@@ -63,6 +63,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy:
   - {fileID: 2405531473396072934, guid: c0262ad593c0ecd4ebf786e69e99a45b, type: 3}
+  - {fileID: 2405531473396072934, guid: 6151a9f18db91f14996dc180bdc5be1e, type: 3}
+  - {fileID: 2405531473396072934, guid: 1acd7467c1187f34f99ad12f194c27bd, type: 3}
 --- !u!114 &93515126985359447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livePoints: 20
+  playerHealthText: {fileID: 0}
 --- !u!33 &-8671690436974183869
 MeshFilter:
   m_ObjectHideFlags: 0
